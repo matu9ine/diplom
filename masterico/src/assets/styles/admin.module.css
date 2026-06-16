@@ -1,0 +1,174 @@
+.secondary__info_blocks {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.secondary__info_block {
+    background-color: var(--main);
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+    width: 100%;
+    max-width: 550px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.secondary__info_title {
+    font-family: var(--font-title);
+    text-transform: uppercase;
+}
+.secondary__info_column_title {
+    font-family: var(--font-title);
+    text-transform: uppercase;
+}
+.secondary__info_title {
+    text-align: center;
+}
+.secondary__info_column_description {
+    font-family: var(--font-regular);
+    font-size: var(--font-small);
+}
+.secondary__info_column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    background-color: gray;
+    border-radius: 25px;
+    padding: 20px;
+}
+.secondary__info_scroll {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+.manage__buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 40px;
+}
+.manage__buttons button {
+    width: 48%;
+    padding: 12px;
+    border-radius: 20px;
+    font-family: var(--font-regular);
+    font-size: var(--font-button);
+    cursor: pointer;
+    border: none;
+    color: #fff;
+}
+.good__btn {
+    background-color: darkgreen;
+}
+.bad__btn {
+    background-color: darkred;
+}
+.promote__group button {
+    width: 100%;
+}
+.promote__group {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+select {
+  appearance: none;
+  @supports (appearance: base-select) {
+    &,
+    &::picker(select) {
+      appearance: base-select;
+    }
+  }
+}
+select {
+  color: white;
+  font-family: var(--font-regular);
+  font-size: var(--font-button);
+  padding: 18px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23FFF' class='size-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E%0A")
+    right 10px center / 20px no-repeat;
+  @supports (appearance: base-select) {
+    padding-inline: 10px;
+    background-image: none;
+    &::picker-icon {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23FFF' class='size-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E%0A");
+      transition: rotate 0.2s ease-out;
+    }
+    &:open::picker-icon {
+      rotate: 180deg;
+    }
+    &::picker(select) {
+      padding: 0;
+      margin-top: 5px;
+      border: 2px solid #fff;
+      background: var(--main);
+      color: #fff;
+      border-radius: 5px;
+      opacity: 0;
+      height: 0;
+      overflow: clip;
+      transition: height 0.5s ease-out, opacity 0.5s ease-out, overlay 0.5s,
+        display 0.5s;
+      transition-behavior: allow-discrete;
+    }
+    &:open::picker(select) {
+      opacity: 1;
+      height: auto;
+      overflow: auto;
+      @starting-style {
+        opacity: 0;
+        height: 0;
+      }
+    }
+    option {
+      padding: 10px;
+      border-top: 2px solid #fff;
+      cursor: pointer;
+      font-family: var(--font-regular);
+      font-size: var(--font-button);
+      transition-property: color;
+      transition-duration: 0.2s;
+      transition-timing-function: ease-out;
+      &:where(:hover, :focus, :active) {
+        background: var(--orange);
+        color: white;
+      }
+      &:checked {
+        background: var(--orange);
+        color: white;
+      }
+      &::checkmark {
+        display: none;
+      }
+      &:first-child {
+        border: 0;
+      }
+    }
+  }
+}
+.alert__loading {
+  font-family: var(--font-title);
+  font-size: var(--font-large);
+  color: #fff;
+}

@@ -1,0 +1,48 @@
+# Render Blueprint for the masterico project.
+# Deploys: PostgreSQL database + Django API (web service) + React frontend (static site).
+# Docs: https://render.com/docs/blueprint-spec
+
+databases:
+  - name: masterico-db
+    databaseName: masterico
+    user: masterico
+    plan: free
+
+services:
+  # ---------- Django backend (API) ----------
+  - type: web
+    name: masterico-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: "bash ./render-build.sh"
+    startCommand: "cd backend_django && gunicorn backend_django.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.10"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: masterico-db
+          property: connectionString
+
+  # ---------- React frontend (static site) ----------
+  - type: web
+    runtime: static
+    name: masterico-web
+    rootDir: masterico
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: build
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      # Build-time API URL baked into the React bundle.
+      # Must be the API service's PUBLIC url (the browser calls it directly).
+      # If Render appends a suffix to the API hostname, update this value and redeploy.
+      - key: REACT_APP_API_URL
+        value: https://masterico-api.onrender.com

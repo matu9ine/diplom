@@ -1,0 +1,215 @@
+.wrapper {
+    width: calc(100% - 40px);
+    max-width: 1140px;
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    margin: 0 auto 80px;
+}
+
+.mainTitle {
+    font-size: var(--font-large);
+    color: var(--text);
+    font-family: var(--font-title);
+    font-weight: 800;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+}
+
+.mainTitle::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: var(--orange);
+    justify-self: center;
+    margin-top: 20px;
+}
+
+.mainContent {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.questions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 715px;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.035);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.question:hover {
+    border-color: rgba(244, 162, 97, 0.48);
+}
+
+.mainQuestTitle {
+    font-size: var(--font-small);
+    font-family: var(--font-title);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.35;
+}
+
+.question__title {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.question__answer {
+    font-family: var(--font-light);
+    font-size: var(--font-small);
+    color: var(--field-text);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.45s ease;
+    max-width: 580px;
+    line-height: 1.5;
+}
+
+.question--active {
+    background-color: var(--field);
+}
+
+.question--active .mainQuestTitle {
+    color: var(--field-text);
+}
+  
+.question__answer--active {
+    max-height: 420px;
+    margin-top: 12px;
+    opacity: 1;
+}
+
+.question__icon {
+    transition: transform 0.3s ease, stroke 0.3s ease;
+    stroke: var(--text);
+    flex: 0 0 auto;
+}
+  
+.question--active .question__icon {
+    transform: rotate(-90deg);
+    stroke: var(--orange);
+}
+
+.consult {
+    width: 100%;
+    background-color: var(--main);
+    border: 1px solid var(--border);
+    max-width: 390px;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.consult__form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+}
+
+.consult__form_title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text);
+}
+
+.consult__title {
+    font-size: 24px;
+    font-family: var(--font-title);
+    font-weight: 800;
+}
+
+.consult__manage {
+    font-size: var(--font-small);
+    font-family: var(--font-light);
+    color: var(--muted);
+}
+
+.consult__form_fields {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.consult__form_field {
+    padding: 16px 17px;
+    color: var(--field-text);
+    font-family: var(--font-regular);
+    font-size: var(--font-button);
+    outline: none;
+    border-radius: var(--radius);
+}
+
+.consult__form_field::placeholder {
+    font-family: var(--font-regular);
+    font-size: var(--font-button);
+    color: var(--input);
+}
+
+.consult__submit_btn {
+    display: flex;
+    width: 100%;
+    height: 58px;
+    color: #121817;
+    align-items: center;
+    font-family: var(--font-semibold);
+    font-size: var(--font-button);
+    cursor: pointer;
+    border: none;
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 16px;
+    border-radius: var(--radius);
+    background-color: var(--orange);
+}
+
+.consult__submit_btn:hover {
+    background-color: #F7B37B;
+}
+
+.consult__submit_btn img {
+    filter: brightness(0) saturate(100%) invert(9%) sepia(8%) saturate(720%) hue-rotate(116deg) brightness(94%) contrast(92%);
+}
+
+@media (max-width: 980px) {
+    .mainContent {
+        flex-direction: column;
+    }
+
+    .questions,
+    .consult {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .wrapper {
+        width: calc(100% - 28px);
+    }
+
+    .question {
+        padding: 18px;
+    }
+}

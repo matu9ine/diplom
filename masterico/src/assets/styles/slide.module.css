@@ -1,0 +1,25 @@
+.slide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    max-width: 360px;
+    min-height: 520px;
+    overflow: hidden;
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
+}
+
+.slide__content {
+    padding: 22px;
+    flex: 1;
+    display: flex;
+}
+
+.slide__image {
+    height: 230px;
+    object-fit: cover;
+    width: 100%;
+    background-color: #F4F7F8;
+}

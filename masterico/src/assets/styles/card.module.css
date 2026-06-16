@@ -1,0 +1,25 @@
+.image {
+    object-fit: contain;
+    width: 72px;
+    height: 72px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    max-width: 250px;
+    min-height: 170px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-regular);
+    font-size: var(--font-small);
+    line-height: 1.35;
+    color: var(--text);
+    padding: 24px 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.035);
+}
