@@ -1,8 +1,12 @@
 # Render Blueprint for the masterico project.
-# Deploys: Django API (web service) + React frontend (static site).
-# The PostgreSQL database is external (e.g. Neon free tier) — its URL is set
-# manually in the masterico-api "DATABASE_URL" environment variable.
+# Deploys: PostgreSQL database + Django API (web service) + React frontend (static site).
 # Docs: https://render.com/docs/blueprint-spec
+
+databases:
+  - name: masterico-db
+    databaseName: masterico
+    user: masterico
+    plan: free
 
 services:
   # ---------- Django backend (API) ----------
@@ -20,9 +24,10 @@ services:
         generateValue: true
       - key: DEBUG
         value: "False"
-      # Paste the external PostgreSQL connection string here in the Render dashboard.
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: masterico-db
+          property: connectionString
 
   # ---------- React frontend (static site) ----------
   - type: web
